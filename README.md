@@ -1,13 +1,30 @@
 # Say Cheese
 A RESTful API with over 1800 cheeses.  
-Originally made by [@IllusionMan1212](https://github.com/IllusionMan1212), this is a fork with minor modifications.  
-  
-You can reach this API under the base URL `https://api.sv443.net/cheese/`
+Originally made by [IllusionMan1212](https://github.com/IllusionMan1212/say-cheese), this is a fork with minor modifications.  
 
 <br>
 
-## Limitations:
-The api is limited to 30 requests per minute per client to prevent abuse and because my server can't handle it lol.
+### Table of Contents:
+- [Introduction](#introduction)
+- [Routes](#routes)
+    - [Parameters](#parameters)
+- [Example Success Response](#example-success-response)
+- [Example Error Response](#example-error-response)
+- [Status Codes](#status-codes)
+- [Field Values](#field-values)
+    - [`country_codes`](#country_codes-values)
+    - [`milks`](#milks-values)
+    - [`types`](#types-values)
+    - [`textures`](#textures-values)
+    - [`color`](#color-values)
+- [Notes about the returned data](#notes-about-the-returned-data)
+
+<br>
+
+## Introduction:
+You can reach this API under the base URL `https://api.sv443.net/cheese/`  
+  
+The API is limited to 30 requests per minute per client to prevent abuse and because my server can't handle it lol.
 
 <br>
 
@@ -22,7 +39,7 @@ The api is limited to 30 requests per minute per client to prevent abuse and bec
 
 <br>
 
-#### Parameters:
+### Parameters:
 | Parameter | Description |
 | :-- | :-- |
 | `q` | (required) The search query you want to perform. |
@@ -32,7 +49,7 @@ The api is limited to 30 requests per minute per client to prevent abuse and bec
 
 <br>
 
-## Example successful response:
+## Example Success Response:
 ```json
 {
     "failed": false,
@@ -93,7 +110,7 @@ The api is limited to 30 requests per minute per client to prevent abuse and bec
 
 <br>
 
-#### Status Codes
+## Status Codes:
 | Code | Description |
 | :-- | :-- |
 | `200` (OK) | The request was successful and that is returned. |
@@ -104,102 +121,96 @@ The api is limited to 30 requests per minute per client to prevent abuse and bec
 
 <br>
 
-#### country_codes values:
+## Field Values:
+
+### `country_codes` values:
 | Code | Country |
 | :-- | :-- |
+| `AD` | Andorra |
 | `AF` | Afghanistan |
 | `AL` | Albania |
-| `AD` | Andorra |
-| `AR` | Argentina |
 | `AM` | Armenia |
-| `AU` | Australia |
+| `AR` | Argentina |
 | `AT` | Austria |
+| `AU` | Australia |
 | `AZ` | Azerbaijan |
 | `BD` | Bangladesh |
-| `BY` | Belarus |
 | `BE` | Belgium |
-| `BR` | Brazil |
 | `BG` | Bulgaria |
+| `BR` | Brazil |
+| `BY` | Belarus |
 | `CA` | Canada |
+| `CH` | Switzerland |
 | `CL` | Chile |
 | `CN` | China |
 | `countries-throughout-world` | Other Countries |
-| `HR` | Croatia |
 | `CY` | Cyprus |
 | `CZ` | Czech Republic |
+| `DE` | Germany |
 | `DK` | Denmark |
 | `eastern-mediterranean` | Eastern Mediterranean |
 | `EG` | Egypt |
 | `england` | England |
+| `ES` | Spain |
 | `FI` | Finland |
 | `FR` | France |
+| `GB` | United Kingdom |
 | `GE` | Georgia |
-| `DE` | Germany |
-| `great-britain` | Great Britain |
 | `GR` | Greece |
+| `great-britain` | Great Britain |
 | `holland` | Holland |
+| `HR` | Croatia |
 | `HU` | Hungary |
-| `IS` | Iceland |
-| `IN` | India |
-| `IR` | Iran |
-| `IQ` | Iraq |
 | `IE` | Ireland |
-| `IM` | Isle of man |
 | `IL` | Israel |
+| `IM` | Isle of man |
+| `IN` | India |
+| `IQ` | Iraq |
+| `IR` | Iran |
+| `IS` | Iceland |
 | `IT` | Italy |
-| `JP` | Japan |
 | `JO` | Jordan |
+| `JP` | Japan |
 | `LB` | Lebanon |
 | `LT` | Lithuania |
+| `mexico-and-caribbean` | Mexico and Caribbean |
+| `middle-east` | Middle East |
 | `MK` | Macedonia |
+| `MN` | Mongolia |
 | `MR` | Mauritania |
 | `MX` | Mexico |
-| `mexico-and-caribbean` | Mexico and Caribbean |
-| `middle-east` | Middle East" |
-| `MN` | Mongolia |
-| `NP` | Nepal |
 | `NL` | Netherlands |
-| `NZ` | New zealand |
 | `NO` | Norway |
+| `NP` | Nepal |
+| `NZ` | New zealand |
 | `PK` | Pakistan |
-| `PS` | Palestine |
 | `PL` | Poland |
+| `PS` | Palestine |
 | `PT` | Portugal |
 | `RO` | Romania |
+| `RS` | Serbia |
 | `RU` | Russia |
 | `scotland` | Scotland |
-| `RS` | Serbia |
-| `SK` | Slovakia |
-| `ES` | Spain |
-| `SZ` | Swaziland |
 | `SE` | Sweden |
-| `CH` | Switzerland |
+| `SK` | Slovakia |
 | `SY` | Syria |
+| `SZ` | Swaziland |
 | `tibet` | Tibet |
 | `TR` | Turkey |
 | `UA` | Ukraine |
-| `GB` | United Kingdom |
 | `US` | United States |
 | `wales` | Wales |
 
-<br>
-
-#### milks values:
+### `milks` values:
 `buffalo`, `camel`, `cow`, `donkey`, `goat`, `mare`, `moose`, `reindeer`, `sheep`, `water-buffalo`, `yak`
 
-<br>
-
-#### types values:
+### `types` values:
 `artisan`, `blue-veined`, `fresh-soft`, `fresh-firm`, `soft`, `semi-soft`, `semi-hard`, `hard`, `semi-firm`, `firm`
 
-<br>
-
-#### textures values:
+### `textures` values:
 `brittle`, `buttery`, `chalky`, `chewy`, `close`, `compact`, `creamy`, `crumbly`, `crystalline`, `dense`, `dry`, `elastic`, `firm`, `flaky`, `fluffy`, `grainy`, `oily`, `open`, `runny`, `semi-firm`, `smooth`, `soft`, `soft-ripened`, `spreadable`, `springy`, `sticky`, `stringy`, `supple`
 
-<br>
-
-#### color values:
+### `color` values:
 `blue`, `blue-grey`, `brown`, `brownish-yellow`, `cream`, `golden-orange`, `golden-yellow`, `green`, `ivory`, `orange`, `pale-white`, `pale-yellow`, `pink-and-white`, `red`, `straw`, `white`, `yellow`
 
 <br>
