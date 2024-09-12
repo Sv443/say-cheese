@@ -1,30 +1,38 @@
 # Say Cheese
-A RESTful api with over 1800 cheeses.
+A RESTful API with over 1800 cheeses.  
+Originally made by @IllusionMan1212, this is a fork with minor modifications.  
+  
+You can reach this API under the base URL `https://api.sv443.net/cheese/`
 
-## Limitations
-The api is limited to 60 requests per minute to prevent abuse and because my server can't handle it lol.
+<br>
 
-## Routes
----
-| Route | Parameter | Description |
-| --- | --- | --- |
-| `/random` | None | Returns a random cheese from the db |
+## Limitations:
+The api is limited to 30 requests per minute per client to prevent abuse and because my server can't handle it lol.
+
+<br>
+
+## Routes:
+| Route | Parameters | Description |
+| :-- | :-- | :-- |
+| `/random` | None | Returns a random cheese |
 | `/search` | `q`, `page`, `per_page` | Search for cheeses by name |
 | `/today` | None | Returns cheese of the day |
 | `/alphabetical` | `letter`, `page`, `per_page` | Find cheeses by their first letter |
 | `/vegetarian` | `page`, `per_page` | Returns an array of all vegetarian cheeses |
 
-#### Parameters
----
-```
-q        => The search query you want to perform. (required)
-letter   => The letter you want to display the cheeses for. (required)
-page     => Pagination number. (default = 1)
-per_page => Number of cheeses to display in a single page. (max = 50; default = 10)
-```
+<br>
 
-## Example successful response
----
+#### Parameters:
+| Parameter | Description |
+| :-- | :-- |
+| `q` | (required) The search query you want to perform. |
+| `letter` | (required) The letter you want to display the cheeses for. |
+| `page?` | Pagination number. (default = 1) |
+| `per_page?` | Number of cheeses to display in a single page. (max = 50; default = 10) |
+
+<br>
+
+## Example successful response:
 ```json
 {
     "failed": false,
@@ -59,8 +67,16 @@ per_page => Number of cheeses to display in a single page. (max = 50; default = 
 }
 ```
 
-## Example Error response
----
+| Property | Description |
+| --- | --- |
+| `failed` | Whether the request failed or not (boolean) |
+| `status` | HTTP status code |
+| `cheese` | Cheese object |
+| `id` | Unique cheese id |
+
+<br>
+
+## Example Error Response:
 ```json
 {
     "failed": true,
@@ -73,176 +89,121 @@ per_page => Number of cheeses to display in a single page. (max = 50; default = 
 | --- | --- |
 | `failed` | Whether the request failed or not (boolean) |
 | `status` | HTTP status code |
-| `cheese` | Cheese object |
-| `id` | Unique cheese id |
+| `error` | Error message |
 
-#### status values
----
-200 `OK`: The request was successful and that is returned. \
-304 `Not Modified`: You already have the latest data. \
-400 `Bad Request`: You submitted an invalid or incomplete request. \
-404 `Not Found`: The requested data does not exist. \
-500 `Internal Server Error`: Something went wrong on our end, please open an issue on the [github](https://github.com/illusionman1212/say-cheese/issues) if this persists.
+<br>
 
-#### country_codes values
----
-`AF`= Afghanistan, \
-`AL`= Albania, \
-`AD`= Andorra, \
-`AR`= Argentina, \
-`AM`= Armenia, \
-`AU`= Australia, \
-`AT`= Austria, \
-`AZ`= Azerbaijan, \
-`BD`= Bangladesh, \
-`BY`= Belarus, \
-`BE`= Belgium, \
-`BR`= Brazil, \
-`BG`= Bulgaria, \
-`CA`= Canada, \
-`CL`= Chile, \
-`CN`= China, \
-`countries-throughout-world`= Other Countries, \
-`HR`= Croatia, \
-`CY`= Cyprus, \
-`CZ`= Czech Republic, \
-`DK`= Denmark, \
-`eastern-mediterranean`= Eastern Mediterranean, \
-`EG`= Egypt, \
-`england`= England, \
-`FI`= Finland, \
-`FR`= France, \
-`GE`= Georgia, \
-`DE`= Germany, \
-`great-britain`= Great Britain, \
-`GR`= Greece, \
-`holland`: Holland, \
-`HU`= Hungary, \
-`IS`= Iceland, \
-`IN`= India, \
-`IR`= Iran, \
-`IQ`= Iraq, \
-`IE`= Ireland, \
-`IM`= Isle of man, \
-`IL`= Israel, \
-`IT`= Italy, \
-`JP`= Japan, \
-`JO`= Jordan, \
-`LB`= Lebanon, \
-`LT`= Lithuania, \
-`MK`= Macedonia, \
-`MR`= Mauritania, \
-`MX`= Mexico, \
-`mexico-and-caribbean`= Mexico and Caribbean, \
-`middle-east`= Middle East", \
-`MN`= Mongolia, \
-`NP`= Nepal, \
-`NL`= Netherlands, \
-`NZ`= New zealand, \
-`NO`= Norway, \
-`PK`= Pakistan, \
-`PS`= Palestine, \
-`PL`= Poland, \
-`PT`= Portugal, \
-`RO`= Romania, \
-`RU`= Russia, \
-`scotland`= Scotland, \
-`RS`= Serbia, \
-`SK`= Slovakia, \
-`ES`= Spain, \
-`SZ`= Swaziland, \
-`SE`= Sweden, \
-`CH`= Switzerland, \
-`SY`= Syria, \
-`tibet`= Tibet, \
-`TR`= Turkey, \
-`UA`= Ukraine, \
-`GB`= United Kingdom, \
-`US`= United States, \
-`wales`= Wales,
+#### Status Codes
+| Code | Description |
+| :-- | :-- |
+| `200` (OK) | The request was successful and that is returned. |
+| `304` (Not Modified) | You already have the latest data. |
+| `400` (Bad Request) | You submitted an invalid or incomplete request. |
+| `404` (Not Found) | The requested data does not exist. |
+| `500` (Internal Server Error) | Something went wrong on our end, please open an issue on the [github](https://github.com/Sv443/say-cheese/issues) if this persists. |
 
-#### milks values
----
-`buffalo`
-`camel`
-`cow`
-`donkey`
-`goat`
-`mare`
-`moose`
-`reindeer`
-`sheep`
-`water-buffalo`
-`yak`
+<br>
 
-#### types values
----
-`artisan`
-`blue-veined`
-`fresh-soft`
-`fresh-firm`
-`soft`
-`semi-soft`
-`semi-hard`
-`hard`
-`semi-firm`
-`firm`
+#### country_codes values:
+| Code | Country |
+| :-- | :-- |
+| `AF` | Afghanistan |
+| `AL` | Albania |
+| `AD` | Andorra |
+| `AR` | Argentina |
+| `AM` | Armenia |
+| `AU` | Australia |
+| `AT` | Austria |
+| `AZ` | Azerbaijan |
+| `BD` | Bangladesh |
+| `BY` | Belarus |
+| `BE` | Belgium |
+| `BR` | Brazil |
+| `BG` | Bulgaria |
+| `CA` | Canada |
+| `CL` | Chile |
+| `CN` | China |
+| `countries-throughout-world` | Other Countries |
+| `HR` | Croatia |
+| `CY` | Cyprus |
+| `CZ` | Czech Republic |
+| `DK` | Denmark |
+| `eastern-mediterranean` | Eastern Mediterranean |
+| `EG` | Egypt |
+| `england` | England |
+| `FI` | Finland |
+| `FR` | France |
+| `GE` | Georgia |
+| `DE` | Germany |
+| `great-britain` | Great Britain |
+| `GR` | Greece |
+| `holland` | Holland |
+| `HU` | Hungary |
+| `IS` | Iceland |
+| `IN` | India |
+| `IR` | Iran |
+| `IQ` | Iraq |
+| `IE` | Ireland |
+| `IM` | Isle of man |
+| `IL` | Israel |
+| `IT` | Italy |
+| `JP` | Japan |
+| `JO` | Jordan |
+| `LB` | Lebanon |
+| `LT` | Lithuania |
+| `MK` | Macedonia |
+| `MR` | Mauritania |
+| `MX` | Mexico |
+| `mexico-and-caribbean` | Mexico and Caribbean |
+| `middle-east` | Middle East" |
+| `MN` | Mongolia |
+| `NP` | Nepal |
+| `NL` | Netherlands |
+| `NZ` | New zealand |
+| `NO` | Norway |
+| `PK` | Pakistan |
+| `PS` | Palestine |
+| `PL` | Poland |
+| `PT` | Portugal |
+| `RO` | Romania |
+| `RU` | Russia |
+| `scotland` | Scotland |
+| `RS` | Serbia |
+| `SK` | Slovakia |
+| `ES` | Spain |
+| `SZ` | Swaziland |
+| `SE` | Sweden |
+| `CH` | Switzerland |
+| `SY` | Syria |
+| `tibet` | Tibet |
+| `TR` | Turkey |
+| `UA` | Ukraine |
+| `GB` | United Kingdom |
+| `US` | United States |
+| `wales` | Wales |
 
-#### textures values
----
-`brittle`
-`buttery`
-`chalky`
-`chewy`
-`close`
-`compact`
-`creamy`
-`crumbly`
-`crystalline`
-`dense`
-`dry`
-`elastic`
-`firm`
-`flaky`
-`fluffy`
-`grainy`
-`oily`
-`open`
-`runny`
-`semi-firm`
-`smooth`
-`soft`
-`soft-ripened`
-`spreadable`
-`springy`
-`sticky`
-`stringy`
-`supple`
+<br>
 
-#### color values
----
-`blue`
-`blue-grey`
-`brown`
-`brownish-yellow`
-`cream`
-`golden-orange`
-`golden-yellow`
-`green`
-`ivory`
-`orange`
-`pale-white`
-`pale-yellow`
-`pink-and-white`
-`red`
-`straw`
-`white`
-`yellow`
+#### milks values:
+`buffalo`, `camel`, `cow`, `donkey`, `goat`, `mare`, `moose`, `reindeer`, `sheep`, `water-buffalo`, `yak`
 
+<br>
 
-## Notes about the returned data
----
-- Any property that does not exist or has an undetermined value will default to `null`.
-- Any array property that does not exist or has an undetermined value will be an empty array `[]`.
+#### types values:
+`artisan`, `blue-veined`, `fresh-soft`, `fresh-firm`, `soft`, `semi-soft`, `semi-hard`, `hard`, `semi-firm`, `firm`
 
-##### More routes are coming soon. If you have a route suggestion/request, please feel free to open an issue on the [github](https://github.com/illusionman1212/say-cheese/issues).
+<br>
+
+#### textures values:
+`brittle`, `buttery`, `chalky`, `chewy`, `close`, `compact`, `creamy`, `crumbly`, `crystalline`, `dense`, `dry`, `elastic`, `firm`, `flaky`, `fluffy`, `grainy`, `oily`, `open`, `runny`, `semi-firm`, `smooth`, `soft`, `soft-ripened`, `spreadable`, `springy`, `sticky`, `stringy`, `supple`
+
+<br>
+
+#### color values:
+`blue`, `blue-grey`, `brown`, `brownish-yellow`, `cream`, `golden-orange`, `golden-yellow`, `green`, `ivory`, `orange`, `pale-white`, `pale-yellow`, `pink-and-white`, `red`, `straw`, `white`, `yellow`
+
+<br>
+
+## Notes about the returned data:
+- Any property that does not exist or has an undetermined value will default to `null`
+- Any array property that does not exist or has an undetermined value will be an empty array (`[]`)
