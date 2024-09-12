@@ -62,3 +62,5 @@ typings/
 
 # formatter
 .prettierrc
+
+.db
