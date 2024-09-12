@@ -13,6 +13,11 @@ const rateLimitBudget = !isNaN(Number(process.env.RATE_LIMIT_BUDGET)) ? Number(p
 
 const app = express();
 
+if(process.env.TRUST_PROXY?.toLowerCase().trim() === "true")
+    app.enable("trust proxy");
+
+app.disable("x-powered-by");
+
 app.use(ratelimiter({
     windowMs: rlWindow * 1000,
     max: rateLimitBudget,
@@ -30,7 +35,6 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.disable("x-powered-by");
 app.use('/', (req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
