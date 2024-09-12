@@ -1,6 +1,6 @@
 # Say Cheese
 A RESTful API with over 1800 cheeses.  
-Originally made by @IllusionMan1212, this is a fork with minor modifications.  
+Originally made by [@IllusionMan1212](https://github.com/IllusionMan1212), this is a fork with minor modifications.  
   
 You can reach this API under the base URL `https://api.sv443.net/cheese/`
 
