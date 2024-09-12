@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { scrapeCheese, getCheeseOfDay, getCheeseInfo } = require(`${__dirname}/../../scraper/scraper`); //absolutely horrible :(
 
+/** @type {import("../models/cheese")} */
 const Cheese = require(`${__dirname}/../models/cheese`);
 
 router.get('/cheese/random', (req, res) => {
@@ -110,30 +110,6 @@ router.get('/cheese/vegetarian', (req, res) => {
         }
         res.status(200).json({ failed: false, status: 200, cheeses: cheeses });
     });
-});
-
-router.get("/cheese/scrape", async (req, res) => {
-
-    scrapeCheese().then(cheeses => {
-        for(const cheese of cheeses) {
-            let new_cheese = new Cheese();
-            new_cheese.name = cheese.cheese_name;
-            new_cheese.link = cheese.link;
-            new_cheese.image = cheese.image;
-            new_cheese.description = cheese.description;
-            new_cheese.attributes = cheese.attributes;
-            new_cheese.country_codes = cheese.country_codes;
-            new_cheese.milks = cheese.milks;
-            new_cheese.save(err => {
-                if (err) {
-                    res.status(500).json({ failed: true, status: 500, error: err });
-                    return;
-                }
-            });
-        }
-
-        res.status(200).json({ failed: false, status: 200, cheeses: cheeses });
-    })
 });
 
 module.exports = router;

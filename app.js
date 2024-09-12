@@ -6,9 +6,12 @@ const logger = require("morgan");
 const ratelimiter = require("express-rate-limit");
 const apiRouter = require(`${__dirname}/api/routes/index`);
 
+const rlWindow = !isNaN(Number(process.env.RATE_LIMIT_WINDOW)) ? Number(process.env.RATE_LIMIT_WINDOW) : 60;
+const rateLimitBudget = !isNaN(Number(process.env.RATE_LIMIT_BUDGET)) ? Number(process.env.RATE_LIMIT_BUDGET) : 30;
+
 const limit = ratelimiter({
-    windowMs: 60 * 1000,
-    max: 60,
+    windowMs: rlWindow * 1000,
+    max: rateLimitBudget,
     draft_polli_ratelimit_headers: true,
 });
 
